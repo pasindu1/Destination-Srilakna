@@ -1,0 +1,842 @@
+{{> header}}
+
+
+<div class="container">
+	<span id="success-msg"></span>
+	<form method="post" action="/vendor/vendor_registoring" enctype="multipart/form-data">
+	<div class="row">
+        <div class="col-md-12 bhoechie-tab-container">
+          <div class="row">
+            <div class="col-md-3 bhoechie-tab-menu">
+              <div class="list-group">
+                <a href="#" id="list_personal_details" class="list-group-item active text-center">
+                  <h4 class="glyphicon glyphicon-plane"></h4><br/>Vendor
+                </a>
+                <a href="#" id="list_vehicle_details" class="list-group-item disabled text-center" class="list-group-item text-center inactive_tab1">
+                  <h4 class="glyphicon glyphicon-road"></h4><br/>Vehicle
+                </a>
+                <a href="#" id="list_image_details" class="list-group-item text-center disabled">
+                  <h4 class="glyphicon glyphicon-home"></h4><br/>Images
+                </a>
+                <a href="#" id="list_final_details" class="list-group-item text-center disabled">
+                  <h4 class="glyphicon glyphicon-cutlery"></h4><br/>Terms And Conditions
+                </a>
+                <!-- <a href="#" class="list-group-item text-center">
+                  <h4 class="glyphicon glyphicon-credit-card"></h4><br/>Credit Card
+                </a> -->
+              </div>
+            </div>
+
+            <div class="col-md-9 bhoechie-tab">
+                <!-- flight section -->
+
+                <div id="personal-details" class="bhoechie-tab-content active">
+<!-- Material form register -->
+                    <div class="container">
+                        <h1 class="well font-weight-bold grey-text">Fill Your Details</h1>
+                      <div class="col-lg-12 well">
+                      <div class="row">
+
+                              <div class="col-sm-12">
+                                <div class="row">
+																	<div class="col-md-9">
+																		<label class="cabinet center-block">
+																			<figure>
+																				<img src="" class="gambar img-responsive img-thumbnail" id="item-img-output" />
+																			  <figcaption><i class="fa fa-camera"></i></figcaption>
+																	    </figure>
+																			<input type="file" id="pro_pic" class="item-img file center-block" name="file_photo"/>
+																		</label>
+																	</div>
+																	<div class="col-md-3">
+
+																	</div>
+
+                                </div>
+
+
+
+																<!--End of profile image upload-->
+                              <div id="reg12">
+																<div class="row">
+																	<div class="col-sm-6 form-group">
+																		<label>First Name</label>
+																		<input type="text" id="fname" name="fname" placeholder="Enter First Name Here.." class="form-control">
+																		<span id="error_fname" class="text-danger"></span>
+																	</div>
+																	<div class="col-sm-6 form-group">
+																		<label>Last Name</label>
+																		<input type="text" id="lname" name="lname" placeholder="Enter Last Name Here.." class="form-control">
+																		<span id="error_lname" class="text-danger"></span>
+																	</div>
+																</div>
+																<div class="form-group">
+																	<label>Address</label>
+																	<textarea placeholder="Enter Address Here.." id="address" name="address" rows="3" class="form-control"></textarea>
+																	<span id="error_address" class="text-danger"></span>
+																</div>
+																<fieldset class="form-group">
+														    <div class="row">
+														      <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+														      <div class="col-sm-10">
+														        <div class="form-check">
+														          <input class="form-check-input" type="radio" name="gender" id="gridRadios1" value="male" checked>
+														          <label class="form-check-label" for="gridRadios1">
+														            Male
+														          </label>
+														        </div>
+														        <div class="form-check">
+														          <input class="form-check-input" type="radio" name="gender" id="gridRadios2" value="female">
+														          <label class="form-check-label" for="gridRadios2">
+														            Female
+														          </label>
+														        </div>
+														      </div>
+														    </div>
+														  </fieldset>
+															<div class="form-group">
+																<label>Phone Number</label>
+																<input type="text" name="pno" id="pno" placeholder="Enter Phone Number Here.." class="form-control">
+																<span id="error_pno" class="text-danger"></span>
+															</div>
+															<div class="form-group">
+																<label>Email Address</label>
+																<input type="email" name="email" id="email" placeholder="Enter Email Address Here.." class="form-control">
+																<span id="error_email" class="text-danger"></span>
+															</div>
+															<button type="button" id="btn-login-details" name="btn-login-details" class="btn btn-lg btn-info">Next</button>
+															</div>
+                              </div>
+
+                            </div>
+                      </div>
+                      </div>
+								</div>
+
+										<!-- flight section -->
+										<div class="bhoechie-tab-content" id="vehicle-details">
+		<!-- Material form register -->
+													<h1 class="well font-weight-bold grey-text" >Fill Yor Vehicle</h1>
+													<div class="col-lg-12 well">
+															<div class="row">
+																		<!--End of profile image upload-->
+																	<div id="reg12" style="margin-left:15px;">
+																		<div class="row">
+																			<div class="col-sm-6 form-group">
+																				<label>Colour</label>
+																				<select class="custom-select mr-sm-2" id="colorselect" name="color">
+										                           <option selected value="blank">Choose a colour...</option>
+										                           {{#each colors}}
+										                              <option value="{{this.color_id}}">{{this.color}}</option>
+										                          {{/each}}
+										                    </select>
+																				<span id="error_color" class="text-danger"></span>
+																			</div>
+																			<div class="col-sm-6 form-group">
+																				<label>Condition</label>
+																				<select class="custom-select mr-sm-2" id="conditionselect" name="condition">
+																							 <option selected value="blank">ChooseCondition...</option>
+																									<option value="luxury">luxury</option>
+																									<option value="normal">normal</option>
+																				</select>
+																				<span id="error_condition" class="text-danger"></span>
+																			</div>
+																			<div class="col-sm-6 form-group">
+																				<label>Description</label>
+																				<input type="text" id="description1" name="vehi_desc" placeholder="Enter Last Name Here.." class="form-control">
+																				<span id="error_description" class="text-danger"></span>
+																			</div>
+																		</div>
+																		<span>*please fill out these details(period that you register vehicle)</span>
+
+																		<div class="row">
+																			<div class="col-md-5">
+																				<div class="form-group">
+																					<label for="">Start</label>
+																					<input id="datepicker" name="datepicker" width="200" />
+																			</div>
+																		</div>
+																			<div class="col-md-1">
+
+																			</div>
+																			<div class="col-md-5">
+																				<div class="form-group">
+																					<label>End</label>
+																					<input id="datepicker1" name="datepicker1" width="200"  />
+																				</div>
+																			</div>
+																		</div>
+																		<div class="form-group">
+																			<label>Brand</label>
+
+
+										                    <select class="custom-select mr-sm-2" id="brandselect" name="brand">
+										                           <option selected value="blank">Choose a brand...</option>
+										                           {{#each brands}}
+										                              <option value="{{this.b_id}}">{{this.b_name}}</option>
+										                          {{/each}}
+										                    </select>
+																				<span id="error_brand" class="text-danger"></span>
+
+																		</div>
+																	<div class="form-group">
+																		<label>Model</label>
+
+																		<select class="custom-select mr-sm-2" id="modelselect" name="model">
+																					 <option selected value="blank">Choose a Model...</option>
+
+																		</select>
+																		<span id="error_model" class="text-danger"></span>
+
+
+																	</div>
+																	<div class="form-group">
+																		<label>Type</label>
+																		<select class="custom-select mr-sm-2" id="typeselect" name="type">
+																					 <option selected value="blank">Choose a Type...</option>
+																					 {{#each types}}
+																							<option value="{{this.t_id}}">{{this.type}}</option>
+																					{{/each}}
+																		</select>
+																		<span id="error_type" class="text-danger"></span>
+																	</div>
+																	<div class="form-group">
+																		<label>Rate per 1KM</label>
+																		<input type="text" name="rate" id="rate" placeholder="Enter your Rate.." class="form-control">
+																		<span id="error_rate" class="text-danger"></span>
+																	</div>
+																	<button type="button" id="previous-personal-details" class="btn btn-lg btn-info" name="previous-personal-details">Previous</button>
+																	<button type="button" id="vehicle_details" name="vehicle-details" class="btn btn-lg btn-info">Next</button>
+																	</div>
+																	</div>
+																</div>
+													</div>
+
+
+                <!-- hotel search -->
+                <div class="bhoechie-tab-content" id="image_details">
+										<h1 class="well font-weight-bold grey-text" >Upload photos of your vehicle</h1>
+										<div class="row">
+											<div class="col-md-8">
+												<!-- <input type="file"
+											         class="filepond"
+											         name="filepond"
+											         multiple
+											         data-max-file-size="3MB"
+											         data-max-files="3" id="vehi_img"  /> -->
+
+
+
+
+																		<label class="fileContainer">
+																		    Click here to trigger the file uploader!
+																		    <input id="file-input" type="file" name="vehi_img" multiple>
+																		</label>
+
+
+																		<div id="preview" width="500"></div>
+
+
+																<hr>
+																<br>
+															 <span id="error_image" class="text-danger"></span>
+															 <button type="button" id="previous-vehicle-details" name="previous-personal-details" class="btn btn-lg btn-info">Previous</button>
+			 												<button type="button" id="image-details" name="vehicle-details" class="btn btn-lg btn-info">Next</button>
+															<button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#myModal1" ripple-radius><i class="fa fa-plus">Add One More Vehicle</i></button>
+											</div>
+											<div class="col-md-4">
+
+												<div class="card mb-4">
+
+												<!--Card image-->
+												<!--Card content-->
+												<div class="card-body">
+
+													<!--Title-->
+													<h4 class="card-title grey-text">Upload your Images Here!!!</h4>
+													<!--Text-->
+													<p  class="card-text grey-text">Maximun number of Images that can be uploaded is 3.</p>
+													<p id="paras" class="grey-text" style="display:none;font-size:14px;">You can upload your best vehicles images
+													to this can start your job</p>
+													<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+
+													<button type="button" onclick="myFunction()" class="btn btn-primary">Read more</button>
+
+												</div>
+
+											</div>
+											<!-- Card -->
+
+											</div>
+										</div>
+
+                </div>
+
+                <div class="bhoechie-tab-content" id="final-details">
+									<div class="row">
+					          <div class="col-md-2"></div>
+					            <div class="col-md-4">
+												<label for="">Complete the captcha</label>
+					              <div class="g-recaptcha" data-sitekey="6LeMSFoUAAAAAKSya9IyE3kOKJtQsx-lCxExzddj"></div>
+					            </div>
+											<div class="col-md-6"></div>
+					          </div>
+										<input type="submit" class="btn btn-raised btn-primary">
+					        </div>
+                </div>
+                <!-- <div class="bhoechie-tab-content">
+
+                </div> -->
+								</div>
+							</div>
+            </div>
+						</form>
+          </div>
+
+
+					<!--modal-->
+					<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog" role="document">
+								<div class="modal-content">
+										<div class="modal-header">
+												<h5 class="modal-title" id="exampleModalLabel">Alert</h5>
+												<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+												</button>
+										</div>
+										<div class="modal-body">
+											<p>Are you sure you want to add one more vehicle</p>
+										</div>
+										<div class="modal-footer">
+												<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+												<button type="button" class="btn btn-primary"  id="new_vehi_btn"> <i class=" fa fa-plus">Add New</i>	</button>
+										</div>
+								</div>
+
+							 </div>
+						</div>
+					<!--modal-->
+
+
+
+
+					<!-- Button trigger modal -->
+
+										<!-- Modal -->
+										<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+											<div class="modal-dialog" role="document">
+													<div class="modal-content">
+															<div class="modal-header">
+																	<h5 class="modal-title" id="exampleModalLabel">Update profile photo</h5>
+																	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																			<span aria-hidden="true">&times;</span>
+																	</button>
+															</div>
+															<div class="modal-body">
+																	<div class="form">
+																		<img src="/images/07.jpg" id="img_file" alt="">
+																		<!-- <div class="uploadBtn"><input type="file" name="img_file" id="img_file">Upload Files</div> -->
+																	</div>
+																	<div class="">
+																		<canvas id="canvas" width="400" height="400" style="border:1px solid silver; border-radius:10px;">
+
+																		</canvas>
+																	</div>
+																	<div id="result">
+
+																	</div>
+															</div>
+															<div class="modal-footer">
+																	<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+																	<button type="button" class="btn btn-primary">Save changes</button>
+															</div>
+													</div>
+
+												 </div>
+											</div>
+											<!-- train section -->
+
+
+												<!--Start of modal-->
+												<div class="modal fade" id="cropImagePop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+													<div class="modal-dialog">
+														<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+													</div>
+													<div class="modal-body">
+																<div id="upload-demo" class="center-block">
+																	<img src="" alt="" id="blankImg1">
+																</div>
+													</div>
+													 <div class="modal-footer">
+																<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+																<button type="button" id="cropImageBtn" class="btn btn-primary">Crop</button>
+															</div>
+														</div>
+													</div>
+												</div>
+												<!--End of modal-->
+
+
+
+{{>footer}}
+ <script src='https://www.google.com/recaptcha/api.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/js/gijgo.min.js" type="text/javascript"></script>
+<script src="https://foliotek.github.io/Croppie/croppie.js"></script>
+
+<script type="text/javascript">
+// Start upload preview image
+$(".gambar").attr("src", "https://user.gadjian.com/static/images/personnel_boy.png");
+						var $uploadCrop,
+						tempFilename,
+						rawImg,
+						imageId;
+
+						// $(function(){
+						// 	$("#pro_pic").change(function() {
+						// 		//console.log(this.files);
+						// 		var reader = new FileReader();
+						// 		reader.onload = function(image){
+						// 			$("#upload-demo").show(0);
+						// 			$("#blankImg1").attr('src',image.target.result);
+						// 		}
+						// 		reader.readAsDataURL(this.files[0]);
+						// 	})
+						// });
+
+
+						function readFile(input) {
+				 			if (input.files && input.files[0]) {
+				              var reader = new FileReader();
+					            reader.onload = function (e) {
+									$('#upload-demo').addClass('ready');
+									$('#cropImagePop').modal('show');
+						            rawImg = e.target.result;
+					            }
+					            reader.readAsDataURL(input.files[0]);
+					        }
+					        else {
+						        alert("Sorry - you're browser doesn't support the FileReader API");
+						    }
+						}
+
+						$uploadCrop = $('#upload-demo').croppie({
+							viewport: {
+								width: 150,
+								height: 200,
+							},
+							enforceBoundary: false,
+							enableExif: true
+						});
+						$('#cropImagePop').on('shown.bs.modal', function(){
+							alert('Shown pop');
+							$uploadCrop.croppie('bind', {
+				        		url: rawImg
+				        	}).then(function(){
+				        		console.log('jQuery bind complete');
+				        	});
+						});
+
+						$('.item-img').on('change', function () { imageId = $(this).data('id'); tempFilename = $(this).val();
+																										 $('#cancelCropBtn').data('id', imageId); readFile(this); });
+						$('#cropImageBtn').on('click', function (ev) {
+							$uploadCrop.croppie('result', {
+								type: 'base64',
+								format: 'jpeg',
+								size: {width: 150, height: 200}
+							}).then(function (resp) {
+								$('#item-img-output').attr('src', resp);
+								$('#cropImagePop').modal('hide');
+							});
+						});
+				// End upload preview image
+
+</script>
+
+
+<script type="text/javascript">
+function previewImages() {
+
+  var preview = document.querySelector('#preview');
+
+  if (this.files) {
+    [].forEach.call(this.files, readAndPreview);
+  }
+
+  function readAndPreview(file) {
+
+    // Make sure `file.name` matches our extensions criteria
+    if (!/\.(jpe?g|png|gif)$/i.test(file.name)) {
+      return alert(file.name + " is not an image");
+    } // else...
+
+    var reader = new FileReader();
+
+    reader.addEventListener("load", function() {
+			var div = document.createElement("div");
+			var div1 = document.createElement("div");
+			div.className = "view zoom";
+			div1.className = "mask flex-center";
+      var image = new Image();
+      image.height = 300;
+      image.title  = file.name;
+      image.src    = this.result;
+			image.style.marginRight = "20px";
+			image.style.marginBottom = "10px";
+			image.style.borderRadius = "7px";
+
+			div.appendChild(image);
+			div.appendChild(div1);
+			document.getElementById("preview").appendChild(div);
+
+    }, false);
+
+    reader.readAsDataURL(file);
+
+  }
+
+}
+
+document.querySelector('#file-input').addEventListener("change", previewImages, false);
+
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#btn-login-details').click(function(){
+			var error_fname ='';
+			var error_lname ='';
+			var error_address = '';
+			var error_pno ='';
+			var error_email ='';
+			var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+			var mobile_validation = /^\d{10}$/;
+			//fname is valid or not
+			if($.trim($('#fname').val()).length == 0){
+				error_fname =' First name is required';
+				$('#error_fname').text(error_fname);
+				$('#fname').addClass('has-error');
+			}else{
+				error_fname = '';
+				$('#error_fname').text(error_fname);
+				$('#fname').removeClass('has-error');
+			}
+			//lname is valid or not
+			if($.trim($('#lname').val()).length == 0){
+				error_lname =' Last name is required';
+				$('#error_lname').text(error_lname);
+				$('#fname').addClass('has-error');
+			}else{
+				error_lname = '';
+				$('#error_lname').text(error_lname);
+				$('#lname').removeClass('has-error');
+			}
+			//checking address is valid or not
+			if($.trim($('#address').val()).length == 0){
+				error_address =' Address is required';
+				$('#error_address').text(error_address);
+				$('#address').addClass('has-error');
+			}else{
+				error_address ='';
+				$('#error_address').text(error_address);
+				$('#address').removeClass('has-error');
+			}
+
+			if($.trim($('#pno').val()).length == 0){
+				error_pno =' Phone number is required';
+				$('#error_pno').text(error_pno);
+				$('#pno').addClass('has-error');
+			}else{
+				if(!mobile_validation.test($('#pno').val())){
+					error_pno =' Phone number is not valid';
+					$('#error_pno').text(error_pno);
+					$('#pno').addClass('has-error');
+				}else{
+					error_pno ='';
+					$('#error_pno').text(error_pno);
+					$('#pno').removeClass('has-error');
+
+				}
+			}
+
+			if($.trim($('#email').val()).length == 0){
+				error_email ='Email is required';
+				$('#error_email').text(error_email);
+				$('#email').addClass('has-error');
+			}else{
+					if(!filter.test($('#email').val())){
+						error_email ='Email is Not valid';
+						$('#error_email').text(error_email);
+						$('#email').addClass('has-error');
+					}else{
+						error_email ='';
+						$('#error_email').text(error_email);
+						$('#email').removeClass('has-error');
+
+					}
+			}
+
+			if(error_fname != '' || error_lname != '' || error_address != '' || error_pno != '' || error_email != ''){
+				return false;
+			}else{
+				$('#list_personal_details').removeClass('active');
+				$('#list_personal_details').removeAttr('href data-toggle');
+				$('#personal-details').removeClass('active');
+				$('#list_personal_details').addClass('disabled');
+				$('#list_vehicle_details').removeClass('disabled');
+				$('#list_vehicle_details').addClass('active');
+				$('list_vehicle_details').attr('href','#vehicle-details');
+				$('list_vehicle_details').attr('data-toggle','tab');
+				$('#vehicle-details').addClass('active in');
+			}
+
+		});
+
+		$('#previous-personal-details').click(function(){
+			$('#list_vehicle_details').removeClass('active');
+			$('#list_vehicle_details').removeAttr('href data-toggle');
+			$('#vehicle-details').removeClass('active');
+			$('#list_vehicle_details').addClass('disabled');
+			$('#list_personal_details').removeClass('disabled');
+			$('#list_personal_details').addClass('active');
+			$('list_personal_details').attr('href','#vehicle-details');
+			$('list_personal_details').attr('data-toggle','tab');
+			$('#personal-details').addClass('active in');
+
+		});
+
+
+		$('#vehicle_details').click(function(){
+			//alert($('#colorselect').val());
+			var error_color ='';
+			var error_description ='';
+			var error_brand ='';
+			var error_model ='';
+			var error_type = '';
+			var error_rate = '';
+			var error_condition='';
+
+			if ( document.getElementsByName('color')[0].value == 'blank' ){
+				error_color ='please select a color';
+				$('#error_color').text(error_color);
+				$('#colorselect').addClass('has-error');
+			}else{
+				error_color ='';
+				$('#error_color').text(error_color);
+				$('#colorselect').removeClass('has-error');
+			}
+
+
+
+
+
+			if($.trim($('#description1').val()).length == 0){
+				error_description ='Description is required';
+				$('#error_description').text(error_description);
+				$('#description1').addClass('has-error');
+			}else{
+				error_description ='';
+				$('#error_description').text(error_description);
+				$('#description1').removeClass('has-error');
+			}
+
+			if (document.getElementsByName('brand')[0].value == 'blank' ){
+				error_brand ='Brand is required';
+				$('#error_brand').text(error_brand);
+				$('#brandselect').addClass('has-error');
+			}else{
+				error_brand ='';
+				$('#error_brand').text(error_brand);
+				$('#brandselect').removeClass('has-error');
+			}
+
+			if (document.getElementsByName('condition')[0].value == 'blank' ){
+				error_condition ='Condition is required';
+				$('#error_condition').text(error_condition);
+				$('#conditionselect').addClass('has-error');
+			}else{
+				error_condition ='';
+				$('#error_condition').text(error_condition);
+				$('#conditionselect').removeClass('has-error');
+			}
+
+			if (document.getElementsByName('model')[0].value == 'blank' ){
+				error_model ='Model is required';
+				$('#error_model').text(error_model);
+				$('#modelselect').addClass('has-error');
+			}else{
+				error_model = '';
+				$('#error_model').text(error_model);
+				$('#modelselect').removeClass('has-error');
+			}
+
+			if (document.getElementsByName('type')[0].value == 'blank' ){
+				error_type ='Type is required';
+				$('#error_type').text(error_type);
+				$('#typeselect').addClass('has-error');
+			}else{
+				error_type = '';
+				$('#error_type').text(error_type);
+				$('#typeselect').removeClass('has-error');
+			}
+
+			if($.trim($('#rate').val()).length == 0){
+				error_rate ='Rate is required';
+				$('#error_rate').text(error_rate);
+				$('#rate').addClass('has-error');
+			}else{
+				error_rate ='';
+				$('#error_rate').text(error_rate);
+				$('#rate').removeClass('has-error');
+			}
+
+			if(error_color != '' || error_description != '' || error_brand !='' || error_model !='' || error_type !='' || error_rate !=''){
+				return false;
+			}else{
+				$('#list_vehicle_details').removeClass('active');
+				$('#list_vehicle_details').removeAttr('href data-toggle');
+				$('#vehicle-details').removeClass('active');
+				$('#list_vehicle_details').addClass('disabled');
+				//$('#vehicle-details').addClass('disabled');
+				$('#list_image_details').removeClass('disabled');
+				$('#list_image_details').addClass('active');
+				$('#list_image_details').attr('href','#image_details');
+				$('#list_image_details').attr('data-toggle', 'tab');
+				$('#image_details').addClass('active in');
+
+			}
+
+
+		});
+		$('#previous-vehicle-details').click(function(){
+			$('#list_image_details').removeClass('active');
+			$('#list_image_details').removeAttr('href data-toggle');
+			$('#image_details').removeClass('active');
+			$('#list_image_details').addClass('disabled');
+			$('#list_vehicle_details').removeClass('disabled');
+			$('#list_vehicle_details').addClass('active');
+			$('#list_vehicle_details').attr('href','#vehicle-details');
+			$('#list_vehicle_details').attr('data-toggle','tab');
+			$('#vehicle-details').addClass('active in');
+		});
+
+		$('#image-details').click(function(){
+			// var error_image = '';
+			// if($.trim($('#image_details input' ).attr('src')).length == 0){
+			// 	error_image ='Image is required';
+			// 	$('#error_image').text(error_type);
+			// 	$('#image_details input').addClass('has-error');
+			// }else{
+			// 	error_image = '';
+			// 	$('#error_image').text(error_type);
+			// 	$('#image_details input').removeClass('has-error');
+			// }
+			// if(error_image != ''){
+      //
+			// 	return false;
+			// }else{
+				$('#list_image_details').removeClass('active');
+				$('#list_image_details').removeAttr('href data-toggle');
+				$('#image_details').removeClass('active');
+				$('#list_image_details').addClass('disabled');
+				//$('#vehicle-details').addClass('disabled');
+				$('#list_final_details').removeClass('disabled');
+				$('#list_final_details').addClass('active');
+				$('#list_final_details').attr('href','#image_details');
+				$('#list_final_details').attr('data-toggle', 'tab');
+				$('#final-details').addClass('active in');
+			// }
+
+		});
+
+
+
+		});
+</script>
+
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#brandselect').change(function(){
+		var brand_id = $(this).val();
+		$.ajax({
+			url: '/vendor/register_vendor?brand='+brand_id,
+			method: 'GET',
+			data:{brandid:brand_id},
+			dataType:'json',
+			success:function(result){
+				// alert(result);
+				//alert(JSON.stringify(dfresult));
+
+				var slt = '<option>Choose a brand</option>'+'<br>';
+				for(var i=0;i<result.length;i++){
+					slt = slt +'<option value = "'+ result[i].id + '">' + result[i].m_name + '</option>'+'<br>';
+				}
+				$("#modelselect").html(slt);
+
+			}
+
+		})
+	})
+});
+</script>
+<script type="text/javascript" src="../../public/javascripts/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../public/javascripts/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+<script>
+$("#datepicker").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+$("#datepicker1").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+    </script>
+<script type="text/javascript">
+function myFunction() {
+	var x = document.getElementById("paras");
+	if (x.style.display === "none") {
+			x.style.display = "block";
+	} else {
+			x.style.display = "none";
+	}
+}
+</script>
+<!-- <script type="text/javascript">
+
+</script> -->
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$('#previewBtn').click(function(){
+		 $('.profile').toggle();
+		 $("#prw").css({"position": "absolute","top":"8px","left":"60px"});
+		 $('#reg12').css({"margin-top":"150px"});
+	});
+});
+
+
+$(document).ready(function(){
+
+	$('#previewBtn1').click(function(){
+		 $('#prw').toggle();
+		  $(".profile").show();
+		 $(".profile").css({"z-index": "999"});
+		 $('#reg12').css({"margin-top":"0px"});
+
+	});
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+  $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
+      e.preventDefault();
+      $(this).siblings('a.active').removeClass("active");
+      $(this).addClass("active");
+      var index = $(this).index();
+      $("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
+      $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
+  });
+});
+
+</script>
+<script src="../config/functions.js"></script>

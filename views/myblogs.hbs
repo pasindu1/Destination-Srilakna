@@ -1,0 +1,183 @@
+
+{{> header}}
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 profile">
+      <aside>
+          <img src="/images/cat.jpg" class="rounded-circle">
+          <br>
+          <h4>Pasindu Navod</h4>
+          <hr>
+          <p>share this page</p>
+          <ul>
+            <li><img src="/images/social_icons/facebook.png"/></li>
+            <li><img src="/images/social_icons/twitter.png"/></li>
+            <li><img src="/images/social_icons/email.png"/></li>
+            <li><img src="/images/social_icons/pinterest.png"/></li>
+            <li><img src="/images/social_icons/googleplus.png"/></li>
+          </ul>
+      </aside>
+    </div>
+
+    <div class="col-md-8">
+
+      <div class="row" id="dataUpload">
+         <button type="button" class="btn btn-warning btn-rounded" data-toggle="modal" data-target="#uploadModal"
+         ><i class="fa fa-camera pr-2" aria-hidden="true"></i>upload photos</button>
+
+      </div>
+      <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title"><span class="badge badge-info">Add a Post</span></h2>
+              <button type="button" name="button" class="close" data-dismiss="modal">&times</button>
+
+            </div>
+            <div class="modal-body">
+              <form id="form_submit" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                  <div class="md-form">
+                    <i class="fa fa-pencil prefix"></i>
+                    <input type="text" id="form10" name="form10" class="md-textarea form-control" rows="3"></input>
+                    <label>Icon Prefix</label>
+                  </div>
+                  <div class="imageUploadedOrNot">
+                    <h2>Heres a display of your image</h2>
+                    <img src="#" alt="" id="blankImg">
+                  </div>
+                  <div class="uploadBtn"><input type="file" id="myfile" name="myfile" value="">Upload Files</div>
+                </div>
+                <input type="submit" id="inputMDEx" class="form-control" value="submit">
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Grid column -->
+      {{#each blogs}}
+      <div class="row">
+        <article class="blogPost">
+          <img src="/images/dog.jpg" alt="" class="rounded-circle" id="profile_image">
+          <div class="foot">
+            <footer><small id="sml"></small></footer>
+            <script type="text/javascript">
+              var date = this.date;
+              var nwdate = date.toString();
+              var newdate = nwdate.split(" ");
+              document.getElementById("sml").innerHTML = "posted on the date"+newdate[0]+newdate[1];
+            </script>
+
+
+
+
+          <br>
+          <!--Card-->
+
+          <div class="card">
+
+            <!--Card content-->
+            <div class="card-body text-left">
+                <!--Text-->
+                <p class="card-text">{{this.description}}</p>
+            </div>
+
+              <!--Card image-->
+              <div class="view">
+                  <img src="../{{this.image_url}}" class="img-fluid" alt="photo">
+                  <a href="#">
+                      <div class="mask rgba-white-slight"></div>
+                  </a>
+              </div>
+
+
+
+          </div>
+
+          </div>
+          <!--/.Card-->
+        </article>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+</script>
+
+<script type="text/javascript">
+  $(function(){
+    $("#myfile").change(function() {
+      //console.log(this.files);
+      var reader = new FileReader();
+      reader.onload = function(image){
+        $(".imageUploadedOrNot").show(0);
+        $("#blankImg").attr('src',image.target.result);
+      }
+      reader.readAsDataURL(this.files[0]);
+    })
+  });
+
+//   $(document).ready(function(){
+//     $('#form_submit').on('submit',function(e){
+//       //e.preventDefault();
+//        if (typeof file !== 'undefined') {
+//   // // Now we know that file is defined, we are good to go.
+//   //       var file = e.target.files[0];
+//           var file = $('#form_submit input[type="file"]').eq(0).files[0];
+//        }
+//   //     var desc = $("#form10").val();
+//   //
+//   //
+//   //     var formData = new FormData();
+//   //     formData.append('myfile', file);
+//
+//   var form = new FormData();
+//   form.append('description', $('#form_submit input[name="form10"]').val());
+//   form.append('myfile',file );
+//
+//       $.ajax({
+//         url:"/users/myblogs",
+//         method:"POST",
+//         contentType: false,
+//         processData: false,
+//         data:form,
+//         success:function(data){
+//           console.log("fucksdas you");
+//         },
+//         error:function (xhr, ajaxOptions, thrownError){
+//             alert("Error : "+thrownError);
+// }
+//       });
+//
+//     });
+//   });
+
+  // $(document).ready(function(){
+  //    $('#form_submit').on('submit',function(e){
+  //      e.preventDefault();
+  //      var desc = document.getElementById("form10").value;
+  //      var myfile = document.getElementById("myfile").files;
+  //      var data = new FormData();
+  //      data.append("form10",desc);
+  //      data.append("myfile",myfile);
+  //      var contenttype = {
+  //        headers : {
+  //          "content-type" : "multipart/form-data"
+  //        }
+  //     }
+  //      axios.post('/users/myblogs', data , contenttype)
+  //     .then(function (response) {
+  //       console.log(response);
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  //    });
+  // });
+</script>

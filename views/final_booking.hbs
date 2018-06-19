@@ -1,0 +1,552 @@
+{{> header}}
+
+
+<div class="container">
+
+
+  <div class="row">
+
+    <div class="col-md-10">
+      <h2>Lets Finalize Your Details</h2>
+      <!--start of hiden box-->
+      <div id="smartwizard">
+          <ul>
+              <li><a id="multi_stp" href="#step-1">Basic Info<br /><small>Booked Dates</small></a></li>
+              <li><a href="#step-2">Pickup Info<br /><small>Your Arrival</small></a></li>
+              <li><a href="#step-3">Select Places<br /><small>Places You Visit</small></a></li>
+              <li><a href="#step-4">Pay Options <br /><small>Select Yours </small></a></li>
+              <li><a href="#step-5">Billing Info<br /><small>Your Bill</small></a></li>
+              <li><a href="#step-6">Payments<br /><small>Make Payments</small></a></li>
+          </ul>
+            <div class="col-md-10">
+              <div id="step-1">
+                <form>
+
+
+                  <!-- Material input text -->
+
+
+                      <label for="materialFormContactEmailEx">Your Start Date</label>
+                      <input type="text" value="{{start}}" readonly id="form_datetime"  class="form-control">
+
+
+
+                  <!-- Material input email -->
+
+                      <label for="materialFormContactEmailEx">Your End Date</label>
+                      <input type="text" value="{{end}}" readonly id="form_datetime1" class="form-control" >
+
+
+                  <!-- Material input subject -->
+
+                      <label for="materialFormContactSubjectEx">Days</label>
+                      <input type="text" id="materialFormContactSubjectEx" class="form-control" value="{{num_of_days}}">
+
+
+
+                  <!-- Material textarea message -->
+
+                      <label for="materialFormContactMessageEx">Email</label>
+                      <input type="text" id="materialFormContactSubjectEx" class="form-control">
+
+                  <!-- Material textarea message -->
+
+                      <label for="materialFormContactMessageEx">Phonenumber</label>
+                      <input type="text" id="materialFormContactSubjectEx" class="form-control">
+
+
+
+              </form>
+              <!-- Material form contact -->
+              </div>
+              <div id="step-2" class="">
+                <form>
+
+
+                    <!-- Material input text -->
+                    <p class="grey-text">*Charges apply when picking up from places away from colombo district</p>
+                    <div class="form-group">
+                        <label for="exampleSelect2">Form Where we should pick u?(city)</label>
+                        <select class="form-control">
+                          <option>Default select</option>
+                        </select>
+                      </div>
+
+                    <!-- Material input email -->
+                    <div class="form-group">
+                        <label for="exampleSelect2">Form Where we should pick u?(name)</label>
+                        <select class="form-control">
+                          <option>Default select</option>
+                        </select>
+                      </div>
+
+                        <h4 class="grey-text">*Pickup Address Details</h4>
+                        <br>
+
+                      <div class="row">
+                        <div class="col-sm-4 form-group">
+                          <label>Address line 1</label>
+                          <input type="text" placeholder="Enter address line 1.." class="form-control">
+                        </div>
+                        <div class="col-sm-4 form-group">
+                          <label>Address line 2</label>
+                          <input type="text" placeholder="Enter address line 2.." class="form-control">
+                        </div>
+                        <div class="col-sm-4 form-group">
+                          <label>Zip</label>
+                          <input type="text" placeholder="Enter Zip Code Here.." class="form-control">
+                        </div>
+                      </div>
+
+
+
+                  </form>
+                  <!-- Material form contact -->
+                </div>
+
+              <div id="step-3">
+                <div class="row">
+                  <div class="col-md-9">
+                    <div class="upper">
+                      <table border="1">
+  <tr>
+    <td valign="top">
+      <div id="map" style="width: 600px; height: 500px;"></div>
+    </td>
+    <td>
+      <div id="side_bar" style="width:200px; height: 600px; overflow: auto"></div>
+    </td>
+  </tr>
+</table>
+Box within at least
+<input type="text" id="distance" value="3" size="2">miles of the route from
+<input type="text" id="from" value="denver" />to
+<input type="text" id="to" value="oklahoma city, OK" />
+<input type="submit" onclick="route()" />
+<br>
+<label>type</label>
+<input type="text" id="type" value="natural_feature" />
+<label>keyword</label>
+<input type="text" id="keyword" value="" />
+<label>name</label>
+<input type="text" id="name" value="" />
+<div id="towns"></div>
+                    </div>
+                    <p class="grey-text">*you can save and search places</p>
+                  </div>
+                  <div class="col-md-3">
+                    <br>
+                    <h4 class="grey-text" style="text-shadow: 3px 6px 8px rgba(148, 137, 169, 0.62);">saved places</h4>
+                    <div id="save_items">
+
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+              <div id="step-4" class="">
+                <div class="main-wrapper">
+
+                    <label class="form-check-label">
+                      <input data-toggle="tooltip" data-placement="top" title="You have selected cash after arrival" type="radio" class="form-check-input" id="haha" name="optradio">Cash<i class="material-icons">attach_file</i>
+                    </label>
+
+
+                    <label class="form-check-label">
+                      <input data-toggle="tooltip" data-placement="top" title="You have select online payment" type="radio" class="form-check-input" id="haha" name="optradio">Online Pay<i class="material-icons">settings</i>
+                    </label>
+
+                </div>
+              </div>
+              <div id="step-5" class="">
+
+              </div>
+              <div id="step-6" class="">
+                <div class="col-md-9 offset-md-2 ">
+                  <div class="card">
+                      <div class="card-header">
+                        <div class="row">
+                        <div class="col-md-5 col-12 pt-2">
+                          <h6 class="m-0"><strong>Payment Details</strong></h6>
+                        </div>
+                        <div class="col-md-7 col-12 icons">
+                          <i class="fa fa-cc-visa fa-2x" aria-hidden="true"></i>
+                          <i class="fa fa-cc-mastercard fa-2x" aria-hidden="true"></i>
+                          <i class="fa fa-cc-discover fa-2x" aria-hidden="true"></i>
+                          <i class="fa fa-cc-amex fa-2x" aria-hidden="true"></i>
+                        </div>
+                      </div>
+                      </div>
+                      <div class="card-body">
+                          <div class="form-group">
+                              <label for="validationTooltipCardNumber"><strong>CARD NUMBER</strong></label>
+                              <div class="input-group">
+                                <input type="text" class="form-control border-right-0" id="validationTooltipCardNumber" placeholder="Card Number">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text rounded-right" id="validationTooltipCardNumber"><i class="fa fa-credit-card"></i></span>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-8 col-12">
+                              <div class="form-group">
+                                <label for="exampleInputExpirationDate"><strong>EXPIRATION DATE</strong></label>
+                                <input type="text" class="form-control" id="exampleInputExpirationDate" placeholder="MM / YY">
+                            </div>
+                            </div>
+                            <div class="col-md-4 col-12">
+                              <div class="form-group">
+                                <label for="exampleInputCvcCode"><strong>CVC CODE</strong></label>
+                                <input type="text" class="form-control" id="exampleInputCvcCode" placeholder="CVC">
+                            </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleInputCouponCode"><strong>COUPON CODE</strong></label>
+                            <input type="text" class="form-control" id="exampleInputCouponCode" placeholder="Coupon Code">
+                          </div>
+                          <button class="btn btn-info w-100 pb-2 pt-2">Start Subscription</button>
+
+                      </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+
+
+    </div>
+
+    <div class="col-md-2">
+
+    </div>
+  </div>
+
+
+</div>
+
+
+<!-- <div id="map"></div> -->
+
+<div class="container-fluid">
+  {{> footer}}
+
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="../../public/javascripts/bootstrap.min.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script> -->
+<script type="text/javascript" src="../../public/javascripts/jquery.smartWizard.min.js"></script>
+<script type="text/javascript" src="../../public/javascripts/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../public/javascripts/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js">
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.payment/1.2.3/jquery.payment.min.js">
+
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+
+      // Smart Wizard
+      $('#smartwizard').smartWizard({
+            selected: 0,  // Initial selected step, 0 = first step
+            keyNavigation:false, // Enable/Disable keyboard navigation(left and right keys are used if enabled)
+            autoAdjustHeight:true, // Automatically adjust content height
+            cycleSteps: false, // Allows to cycle the navigation of steps
+            backButtonSupport: true, // Enable the back button support
+            useURLhash: true, // Enable selection of the step based on url hash
+            lang: {  // Language variables
+                next: 'Next',
+                previous: 'Previous'
+            },
+            toolbarSettings: {
+                toolbarPosition: 'bottom', // none, top, bottom, both
+                toolbarButtonPosition: 'right', // left, right
+                showNextButton: true, // show/hide a Next button
+                showPreviousButton: true, // show/hide a Previous button
+                toolbarExtraButtons: [
+			$('<button></button>').text('Finish')
+					      .addClass('btn btn-info')
+					      .on('click', function(){
+						alert('Finsih button click');
+					      }),
+			$('<button></button>').text('Cancel')
+					      .addClass('btn btn-danger')
+					      .on('click', function(){
+						alert('Cancel button click');
+					      })
+                      ]
+            },
+            anchorSettings: {
+                anchorClickable: true, // Enable/Disable anchor navigation
+                enableAllAnchors: false, // Activates all anchors clickable all times
+                markDoneStep: true, // add done css
+                enableAnchorOnDoneStep: true // Enable/Disable the done steps navigation
+            },
+            contentURL: null, // content url, Enables Ajax content loading. can set as data data-content-url on anchor
+            disabledSteps: [],    // Array Steps disabled
+            errorSteps: [],    // Highlight step with errors
+            theme: 'arrows',
+            transitionEffect: 'fade', // Effect on navigation, none/slide/fade
+            transitionSpeed: '400'
+      });
+
+  });
+</script>
+<script type="text/javascript">
+    $("#form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+    $("#form_datetime1").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+
+    $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+
+  // $(document).ready(function(){
+  //   $('#haha').click(function(){
+  //     $('i.material-icons').css('transform', 'scale(1)');
+  //     $('i.material-icons').css('box-shadow', '10px 0 20px rgba(0, 0, 0, 0.19), 6px 0 6px rgba(0, 0, 0, 0.23)');
+  //   });
+  // });
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvJqq1kg_ebCZKE4V9jqYHHC1pfrP4kA0&libraries=places"></script>
+<script src="https://cdn.rawgit.com/googlemaps/v3-utility-library/master/routeboxer/src/RouteBoxer.js" type="text/javascript"></script>
+<script type="text/javascript">
+var map = null;
+var boxpolys = null;
+var directions = null;
+var routeBoxer = null;
+var distance = null; // km
+var service = null;
+var gmarkers = [];
+var boxes = null;
+var infowindow = new google.maps.InfoWindow();
+
+function initialize() {
+// Default the map view to the continental U.S.
+var mapOptions = {
+  center: new google.maps.LatLng(40, -80.5),
+  mapTypeId: google.maps.MapTypeId.ROADMAP,
+  zoom: 8
+};
+
+map = new google.maps.Map(document.getElementById("map"), mapOptions);
+service = new google.maps.places.PlacesService(map);
+
+routeBoxer = new RouteBoxer();
+
+directionService = new google.maps.DirectionsService();
+directionsRenderer = new google.maps.DirectionsRenderer({
+  map: map
+});
+
+// If there are any parameters at eh end of the URL, they will be in  location.search
+// looking something like  "?marker=3"
+
+// skip the first character, we are not interested in the "?"
+var query = location.search.substring(1);
+
+// split the rest at each "&" character to give a list of  "argname=value"  pairs
+var pairs = query.split("&");
+for (var i = 0; i < pairs.length; i++) {
+  // break each pair at the first "=" to obtain the argname and value
+  var pos = pairs[i].indexOf("=");
+  var argname = pairs[i].substring(0, pos).toLowerCase();
+  var value = pairs[i].substring(pos + 1).toLowerCase();
+
+  // process each possible argname  -  use unescape() if theres any chance of spaces
+  if (argname == "to") {
+    document.getElementById('to').value = unescape(value);
+  }
+  if (argname == "from") {
+    document.getElementById('from').value = unescape(value);
+  }
+  if (argname == "dist") {
+    document.getElementById('distance').value = parseFloat(value);
+  }
+  if (argname == "type") {
+    document.getElementById('type').value = unescape(value);
+  }
+  if (argname == "keyword") {
+    document.getElementById('keyword').value = unescape(value);
+  }
+  if (argname == "name") {
+    document.getElementById('name').value = unescape(value);
+  }
+  if (argname == "submit") {
+    route();
+  }
+}
+
+}
+
+function route() {
+// Clear any previous route boxes from the map
+clearBoxes();
+
+// Convert the distance to box around the route from miles to km
+distance = parseFloat(document.getElementById("distance").value) * 1.609344;
+
+var request = {
+  origin: document.getElementById("from").value,
+  destination: document.getElementById("to").value,
+  travelMode: google.maps.DirectionsTravelMode.DRIVING
+}
+
+// Make the directions request
+directionService.route(request, function(result, status) {
+  if (status == google.maps.DirectionsStatus.OK) {
+    directionsRenderer.setDirections(result);
+
+    // Box around the overview path of the first route
+    var path = result.routes[0].overview_path;
+    boxes = routeBoxer.box(path, distance);
+    // alert(boxes.length);
+    //drawBoxes();
+    findPlaces(0);
+  } else {
+    alert("Directions query failed: " + status);
+  }
+});
+}
+
+// Draw the array of boxes as polylines on the map
+function drawBoxes() {
+boxpolys = new Array(boxes.length);
+for (var i = 0; i < boxes.length; i++) {
+  boxpolys[i] = new google.maps.Rectangle({
+    bounds: boxes[i],
+    fillOpacity: 0,
+    strokeOpacity: 1.0,
+    strokeColor: '#000000',
+    strokeWeight: 1,
+    map: map
+  });
+}
+}
+
+
+function findPlaces(searchIndex) {
+var type = document.getElementById('type').value;
+var keyword = document.getElementById('keyword').value;
+var name = document.getElementById('name').value;
+var request = {
+  bounds: boxes[searchIndex],
+};
+if (!!type && (type != "")) {
+  if (type.indexOf(',') > 0)
+    request.types = type.split(',');
+  else
+    request.types = [type];
+}
+// if (!!keyword && (keyword != "")) request.keyword = keyword;
+// if (!!name && (name != "")) request.name = name;
+service.radarSearch(request, function(results, status) {
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    document.getElementById('side_bar').innerHTML += "bounds[" + searchIndex + "] returns " + results.length + " results<br>"
+    for (var i = 0, result; result = results[i]; i++) {
+      var marker = createMarker(result);
+    }
+  } else {
+    document.getElementById('side_bar').innerHTML += "bounds[" + searchIndex + "] returns 0 results<br>&nbsp;status=" + status + "<br>";
+  }
+  if (status != google.maps.places.PlacesServiceStatus.OVER_QUERY_LIMIT) {
+    searchIndex++;
+    if (searchIndex < boxes.length)
+      findPlaces(searchIndex);
+  } else { // delay 1 second and try again
+    setTimeout("findPlaces(" + searchIndex + ")", 1000);
+  }
+
+});
+}
+
+// Clear boxes currently on the map
+function clearBoxes() {
+if (boxpolys != null) {
+  for (var i = 0; i < boxpolys.length; i++) {
+    boxpolys[i].setMap(null);
+  }
+}
+boxpolys = null;
+}
+
+function createMarker(place) {
+var placeLoc = place.geometry.location;
+if (place.image) {
+  var image = new google.maps.MarkerImage(
+    place.image, new google.maps.Size(71, 71),
+    new google.maps.Point(0, 0), new google.maps.Point(17, 34),
+    new google.maps.Size(25, 25));
+} else var image = {
+  url: "https://maps.gstatic.com/intl/en_us/mapfiles/markers2/measle.png",
+  size: new google.maps.Size(7, 7),
+  anchor: new google.maps.Point(3.5, 3.5)
+};
+
+var marker = new google.maps.Marker({
+  map: map,
+  icon: image,
+  position: place.geometry.location
+});
+var request = {
+  reference: place.reference
+};
+google.maps.event.addListener(marker, 'click', function() {
+  service.getDetails(request, function(place, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+      var contentStr = '<h5>' + place.name + '</h5><p>' + place.formatted_address;
+      if (!!place.formatted_phone_number) contentStr += '<br>' + place.formatted_phone_number;
+      var photos= place.photos;
+      if (!!place.photos) contentStr += '<br>' + photos[0].getUrl({'maxWidth': 35, 'maxHeight': 35});
+      if (!!place.website) contentStr += '<br><a target="_blank" href="' + place.website + '">' + place.website + '</a>';
+      contentStr += '<br>' + place.types + '</p>';
+      infowindow.setContent(contentStr);
+      infowindow.open(map, marker);
+    } else {
+      var contentStr = "<h5>No Result, status=" + status + "</h5>";
+      infowindow.setContent(contentStr);
+      infowindow.open(map, marker);
+    }
+  });
+
+});
+gmarkers.push(marker);
+if (!place.name) place.name =place.formatted_address+" "+ gmarkers.length;
+var side_bar_html = "<a href='javascript:google.maps.event.trigger(gmarkers[" + parseInt(gmarkers.length - 1) + "],\"click\");'>" + place.name + "</a><br>";
+document.getElementById('side_bar').innerHTML += side_bar_html;
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#save_button').click(function(){
+      var save_item = $('#pac-input').val();
+      var txt3 = document.createElement("input");  // Create with DOM
+      $(txt3).attr("readonly","true");
+      $(txt3).attr("value",save_item);
+      $(txt3).addClass("form-control");
+      $(txt3).css("width","280px")
+      $(txt3).css("margin-top","5px");
+
+      if(save_item){
+        $("#save_items").append(txt3);
+      }else{
+        return false;
+
+      }
+    });
+  });
+</script>

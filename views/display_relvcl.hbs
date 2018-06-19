@@ -1,0 +1,151 @@
+{{> header}}
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <!--Table-->
+<table class="table">
+
+    <!--Table head-->
+    <thead class="mdb-color darken-3">
+        <tr class="text-white">
+            <th>#</th>
+            <th>Owner(Username)</th>
+            <th>Year</th>
+            <th>Brand</th>
+            <th>Display</th>
+        </tr>
+    </thead>
+    <!--Table head-->
+
+    <!--Table body-->
+    <tbody>
+      {{#each vehicles}}
+        <tr>
+            <th scope="row">1</th>
+            <td>{{this.owner}}</td>
+            <td>{{this.year}}</td>
+            <td>{{this.b_name}}</td>
+            <td><a href="#" class="btn btn-primary">show</a></td>
+        </tr>
+      {{/each}}
+
+    </tbody>
+    <!--Table body-->
+
+</table>
+<!--Table-->
+
+    </div>
+
+
+    <div class="col-md-3">
+      <p class="font-weight-normal">Related Vehicles.</p>
+      <div class="list-group">
+        {{#each models}}
+        <a href="/vehicle/display_relativevcls?m_id={{this.id}}&b_id={{this.brand_id}}" class="list-group-item waves-effect">{{this.m_name}}</a>
+        {{/each}}
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="container text-center my-3">
+        <h3>Related vehicles</h3>
+        <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
+            <div class="carousel-inner w-100" role="listbox">
+                <div class="carousel-item row active">
+                    <div class="col-3 float-left">
+                      <div class="view zoom">
+                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/People/6-col/img%20(7).jpg" class="img-fluid " alt="">
+                        <div class="mask flex-center">
+                            <p class="white-text">Zoom effect</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-3 float-left">
+                      <div class="view zoom">
+                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/People/6-col/img%20(9).jpg" class="img-fluid " alt="">
+                        <div class="mask flex-center">
+                            <p class="white-text">Zoom effect</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-3 float-left">
+                      <div class="view zoom">
+                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/People/6-col/img%20(17).jpg" class="img-fluid " alt="">
+                        <div class="mask flex-center">
+                            <p class="white-text">Zoom effect</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-3 float-left">
+                      <div class="view zoom">
+                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/People/6-col/img%20(27).jpg" class="img-fluid " alt="">
+                        <div class="mask flex-center">
+                            <p class="white-text">Zoom effect</p>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="carousel-item row">
+                    <div class="col-3 float-left">
+                      <div class="view zoom">
+                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/People/6-col/img%20(13).jpg" class="img-fluid " alt="">
+                        <div class="mask flex-center">
+                            <p class="white-text">Zoom effect</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-3 float-left">
+                      <div class="view zoom">
+                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/People/6-col/img%20(12).jpg" class="img-fluid " alt="">
+                        <div class="mask flex-center">
+                            <p class="white-text">Zoom effect</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-3 float-left">
+                      <div class="view zoom">
+                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/People/6-col/img%20(7).jpg" class="img-fluid " alt="">
+                        <div class="mask flex-center">
+                            <p class="white-text">Zoom effect</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-3 float-left">
+                      <div class="view zoom">
+                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/People/6-col/img%20(7).jpg" class="img-fluid " alt="">
+                        <div class="mask flex-center">
+                            <p class="white-text">Zoom effect</p>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#recipeCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#recipeCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+
+    </div>
+  </div>
+
+
+
+</div>
+<div class="container-fluid">
+  {{> footer}}
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

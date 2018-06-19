@@ -1,0 +1,46 @@
+
+<!-- Material form login -->
+<div class="wrapper">
+
+
+<div class="container">
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+
+    <form method="post" action="/login">
+      <p class="h4 text-center mb-4">Sign in</p>
+      {{#if info}}
+        <h6 class="alert alert-success"> {{info}}</h6>
+      {{/if}}
+      <!-- Material input email -->
+      <div class="md-form">
+        <i class="fa fa-envelope prefix grey-text"></i>
+        <input type="text" id="materialFormLoginEmailEx" class="form-control" name="username">
+        <label for="materialFormLoginEmailEx">Your email</label>
+      </div>
+
+      <!-- Material input password -->
+      <div class="md-form">
+        <i class="fa fa-lock prefix grey-text"></i>
+        <input  type="password" id="materialFormLoginPasswordEx" class="form-control" name="password">
+        <label for="materialFormLoginPasswordEx">Your password</label>
+        <p class="font-small blue-text d-flex justify-content-end">Forgot <a href="#" class="blue-text ml-1"> Password?</a></p>
+      </div>
+
+      <div class="text-center mt-4">
+        <input type="submit" class="btn btn-primary" value="Log In">
+      </div>
+    </form>
+    <br>
+    <div class="modal-footer mx-8 pt-3 mb-1">
+      <p class="font-small grey-text d-flex justify-content-end">Not a member? <a href="/select_role" class="blue-text ml-1"> Sign Up</a></p>
+    </div>
+  </div>
+  <div class="col-md-4"></div>
+</div>
+<!-- Material form login -->
+
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -1,0 +1,78 @@
+
+<!-- Material form login -->
+<div class="wrapper">
+
+
+<div class="container">
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+
+
+<!-- Material form register -->
+<form method="post" action="/registeruser">
+    <p class="h4 text-center mb-4">Sign up</p>
+
+
+
+
+    {{#each errors}}
+      <h6 class="alert alert-danger">{{this.msg}}</h6>
+    {{/each}}
+    {{#if info1}}
+      <h6 class="alert alert-danger">{{info1}}</h6>
+    {{/if}}
+    {{#if info2}}
+      <h6 class="alert alert-danger">{{info2}}</h6>
+    {{/if}}
+
+    <!-- Ma{{#if info1}}
+      <h6 class="alert alert-success">{{info1}}</h6>
+    {{/if}}terial input text -->
+    <div class="md-form">
+        <i class="fa fa-user prefix grey-text"></i>
+        <input type="text" id="materialFormRegisterNameEx" class="form-control" name="username">
+        <label for="materialFormRegisterNameEx">Your Username</label>
+    </div>
+
+    <!-- Material input email -->
+    <div class="md-form">
+        <i class="fa fa-envelope prefix grey-text"></i>
+        <input type="email" id="materialFormRegisterEmailEx" class="form-control" name="email">
+        <label for="materialFormRegisterEmailEx">Your email</label>
+    </div>
+
+    <div class="md-form">
+        <i class="fa fa-lock prefix grey-text"></i>
+        <input type="password" id="materialFormRegisterPasswordEx" class="form-control" name="password">
+        <label for="materialFormRegisterPasswordEx">Your password</label>
+    </div>
+
+    <!-- Material input email -->
+    <div class="md-form">
+        <i class="fa fa-exclamation-triangle prefix grey-text"></i>
+        <input type="password" id="materialFormRegisterConfirmEx" class="form-control" name="confirmpassword">
+        <label for="materialFormRegisterConfirmEx">Confirm your password</label>
+    </div>
+
+    <!-- Material input password -->
+
+    <input type="text" name="role" value="{{role}}" hidden>
+    <div class="text-center mt-4">
+        <button class="btn btn-primary" type="submit">Register</button>
+    </div>
+</form>
+<!-- Material form register -->
+
+<div class="modal-footer mx-8 pt-3 mb-1">
+  <p class="font-small grey-text d-flex justify-content-end">Already have an account? <a href="/login" class="blue-text ml-1"> Sign IN</a></p>
+</div>
+
+  </div>
+  <div class="col-md-4"></div>
+</div>
+<!-- Material form login -->
+
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -1,0 +1,20 @@
+
+{{> header}}
+{{#unless isAuthenticated}}
+<div class="video-header wrap">
+	<div class="fullscreen-video-wrap">
+		<video autoplay loop>
+        <source src="video/My Video1.mp4" type="video/mp4">
+        <source src="video/My Video2.mp4" type="video/webm">
+        <source src="video/My Video.mp4" type="video/mov">
+    </video>
+	</div>
+	<div class="header-overlay">
+		<div class="header-content">
+			<h1>GOOD MORNING</h1>
+			<p>The real voyage of discovery consists not in seeking new landscapes, but in having new eyes</p>
+			<a href="/home" class="btn btn-success my-btn mt-4">SEE MORE &gt;</a>
+		</div>
+	</div>
+</div>
+{{/unless}}

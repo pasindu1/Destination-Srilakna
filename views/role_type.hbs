@@ -1,0 +1,27 @@
+
+<!-- Material form login -->
+<div class="wrapper">
+
+
+<div class="container">
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+
+
+<!-- Material form register -->
+{{#each result}}
+<a type="button" class="btn btn-primary btn-lg btn-block" href="/register?role_id={{this.role_id}}" style="padding:30px;margin-top:20px;">Register As A {{this.role_name}}</a>
+<br>
+{{/each}}
+<!-- Material form register -->
+
+
+
+  </div>
+  <div class="col-md-4"></div>
+</div>
+<!-- Material form login -->
+
+</div>
+</div>
