@@ -228,10 +228,11 @@ function dateCheck(start,end,startdb,enddb) {
 
 
  router.get('/home',function(req,res){
-     connection.query("SELECT vehicle.vehicle_id,vehicle.rate,color.color,brand.b_name,model.m_name FROM vehicle JOIN brand ON brand.b_id =vehicle.brand_id JOIN color ON color.color_id=vehicle.color_id JOIN model ON model.id=vehicle.model_id WHERE type_id =1",function(err,result1){
+     connection.query("SELECT vehicle.vehicle_id,vehicle.rate,color.color,brand.b_name,model.m_name FROM vehicle JOIN brand ON brand.b_id = vehicle.brand_id JOIN color ON color.color_id=vehicle.color_id JOIN model ON model.id=vehicle.model_id WHERE type_id =1",function(err,result1){
        if(err) throw err;
-       //console.log(result1);
+       console.log(result1);
        connection.query("SELECT vehicle.vehicle_id,vehicle.rate,color.color,brand.b_name,model.m_name FROM vehicle JOIN brand ON brand.b_id =vehicle.brand_id JOIN color ON color.color_id=vehicle.color_id JOIN model ON model.id=vehicle.model_id WHERE type_id =2",function(err,result2){
+         console.log(result2);
          if(err) throw err;
          connection.query("SELECT vehicle.vehicle_id,vehicle.rate,color.color,brand.b_name,model.m_name FROM vehicle JOIN brand ON brand.b_id =vehicle.brand_id JOIN color ON color.color_id=vehicle.color_id JOIN model ON model.id=vehicle.model_id WHERE type_id =3",function(err,result3){
            if(err) throw err;
@@ -266,6 +267,7 @@ router.post('/home',function(req,res){
   var brandid = req.body.brand;
   var arr= [];
   connection.query("SELECT * FROM events",function(err,result){
+
     if(result.length>0){
       for(var i=0;i<result.length;i++){
         var dbsDate= result[i].start;
@@ -279,26 +281,36 @@ router.post('/home',function(req,res){
       arr = arr.filter( function( item, index, inputArray ) {
           return inputArray.indexOf(item) == index;
         });
-      //console.log(arr.length);
-      if(arr.length>0){
-        connection.query("SELECT vehicle.brand_id,vehicle.vehicle_id,vehicle.rate,color.color,brand.b_name,model.m_name FROM vehicle JOIN brand ON brand.b_id =vehicle.brand_id JOIN color ON color.color_id=vehicle.color_id JOIN model ON model.id=vehicle.model_id WHERE type_id =1 AND vehicle.brand_id="+brandid +" AND vehicle_id IN (" + arr.join() + ")",function(err,result1){
+        var k=arr.length;
+        connection.query("SELECT * FROM vehicle WHERE vehicle_id <> ?",arr,function(err,result67){
           if(err) throw err;
-          //console.log(result1);
-          connection.query("SELECT vehicle.vehicle_id,vehicle.rate,color.color,brand.b_name,model.m_name FROM vehicle JOIN brand ON brand.b_id =vehicle.brand_id JOIN color ON color.color_id=vehicle.color_id JOIN model ON model.id=vehicle.model_id WHERE type_id =2 AND vehicle.brand_id="+brandid +" AND vehicle_id IN ("+ arr.join() + ")",function(err,result2){
-            if(err) throw err;
-            connection.query("SELECT vehicle.vehicle_id,vehicle.rate,color.color,brand.b_name,model.m_name FROM vehicle JOIN brand ON brand.b_id =vehicle.brand_id JOIN color ON color.color_id=vehicle.color_id JOIN model ON model.id=vehicle.model_id WHERE type_id =3 AND vehicle.brand_id="+brandid +" AND vehicle_id IN ("+ arr.join() + ")",function(err,result3){
+          var t=0;
+          for(var j=k;j<result67.length+k;j++){
+            arr[j] = result67[t]["vehicle_id"];
+            t= t+1;
+          }
+          if(arr.length>0){
+            connection.query("SELECT vehicle.brand_id,vehicle.vehicle_id,vehicle.rate,color.color,brand.b_name,model.m_name FROM vehicle JOIN brand ON brand.b_id =vehicle.brand_id JOIN color ON color.color_id=vehicle.color_id JOIN model ON model.id=vehicle.model_id WHERE type_id =1 AND vehicle.brand_id="+brandid +" AND vehicle_id IN (" + arr.join() + ")",function(err,result1){
               if(err) throw err;
-              connection.query("SELECT * FROM brand",function(err,result4){
+              console.log(result1);
+              connection.query("SELECT vehicle.vehicle_id,vehicle.rate,color.color,brand.b_name,model.m_name FROM vehicle JOIN brand ON brand.b_id =vehicle.brand_id JOIN color ON color.color_id=vehicle.color_id JOIN model ON model.id=vehicle.model_id WHERE type_id =2 AND vehicle.brand_id="+brandid +" AND vehicle_id IN ("+ arr.join() + ")",function(err,result2){
                 if(err) throw err;
-                res.render('home',{result1:result1,result2:result2,result3:result3,result4:result4});
-            })
-          });
-        });
+                connection.query("SELECT vehicle.vehicle_id,vehicle.rate,color.color,brand.b_name,model.m_name FROM vehicle JOIN brand ON brand.b_id =vehicle.brand_id JOIN color ON color.color_id=vehicle.color_id JOIN model ON model.id=vehicle.model_id WHERE type_id =3 AND vehicle.brand_id="+brandid +" AND vehicle_id IN ("+ arr.join() + ")",function(err,result3){
+                  if(err) throw err;
+                  connection.query("SELECT * FROM brand",function(err,result4){
+                    if(err) throw err;
+                    res.render('home',{result1:result1,result2:result2,result3:result3,result4:result4});
+                })
+              });
+            });
 
-      });
-    }else{
-      res.redirect('/home');
-    }
+          });
+        }else{
+          res.redirect('/home');
+        }
+        });
+      //console.log(arr.length);
+
 
     }else{
       res.redirect('/home');
